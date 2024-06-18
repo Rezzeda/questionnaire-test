@@ -1,0 +1,56 @@
+.MultipleChoiceQuestion {
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &__questionText {
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+
+    &__option {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        gap: 10px;
+    }
+
+    &__input {
+        appearance: none;
+        background: #fff;
+        border: 2px solid #415674;
+        height: 1.5em;
+        width: 1.5em;
+        vertical-align: text-bottom;
+        position: relative;
+        
+        &::before{
+            content: "";
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            top: 0;
+        }
+
+        &:checked::before {
+            border-right: 5px solid #4b83fc;
+            border-bottom: 6px solid #4b83fc;
+            height: 90%;
+            width: 30%;
+            transform: rotate(50deg) translateY(-20%) translateX(-10%);
+        }
+
+        &:focus {
+            outline: solid 1px;
+            outline-offset: 2px;
+        }
+    }
+    
+    &__label {
+        position: relative;
+    }
+}

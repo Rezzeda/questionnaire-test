@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { setAnswer } from '../../services/testSlice';
 import { RootState } from '../../services/store';
+import { useAppDispatch, useAppSelector } from '../../hooks/appHooks';
 
 interface LongAnswerQuestionProps {
     question: {
@@ -12,8 +12,8 @@ interface LongAnswerQuestionProps {
 }
 
 const LongAnswerQuestion: React.FC<LongAnswerQuestionProps> = ({ question }) => {
-    const dispatch = useDispatch();
-    const savedAnswer = useSelector((state: RootState) => state.test.answers[question.id]) || '';
+    const dispatch = useAppDispatch();
+    const savedAnswer = useAppSelector((state: RootState) => state.test.answers[question.id]) || '';
     const [answer, setAnswerState] = useState(savedAnswer);
 
     useEffect(() => {
